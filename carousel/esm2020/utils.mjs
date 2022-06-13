@@ -1,0 +1,32 @@
+/**
+ * Returns the index of the last element in the array where predicate is true, and -1
+ * otherwise.
+ * @param array The source array to search in
+ * @param predicate find calls predicate once for each element of the array, in descending
+ * order, until it finds one where predicate returns true. If such an element is found,
+ * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.
+ */
+export function findLastIndex(array, predicate) {
+    let l = array.length;
+    while (l--) {
+        if (predicate(array[l], l, array)) {
+            return l;
+        }
+    }
+    return -1;
+}
+export function chunkByNumber(array, size) {
+    const out = [];
+    const n = Math.ceil((array.length) / size);
+    let i = 0;
+    while (i < n) {
+        const chunk = array.splice(0, (i === n - 1) && size < array.length ? array.length : size);
+        out.push(chunk);
+        i++;
+    }
+    return out;
+}
+export function isNumber(value) {
+    return typeof value === 'number' || Object.prototype.toString.call(value) === '[object Number]';
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbHMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvY2Fyb3VzZWwvdXRpbHMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7R0FPRztBQUNILE1BQU0sVUFBVSxhQUFhLENBQUksS0FBVSxFQUFFLFNBQXlEO0lBQ3BHLElBQUksQ0FBQyxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQUM7SUFFckIsT0FBTyxDQUFDLEVBQUUsRUFBRTtRQUNWLElBQUksU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsS0FBSyxDQUFDLEVBQUU7WUFDakMsT0FBTyxDQUFDLENBQUM7U0FDVjtLQUNGO0lBRUQsT0FBTyxDQUFDLENBQUMsQ0FBQztBQUNaLENBQUM7QUFFRCxNQUFNLFVBQVUsYUFBYSxDQUFJLEtBQVUsRUFBRSxJQUFZO0lBQ3ZELE1BQU0sR0FBRyxHQUFHLEVBQUUsQ0FBQztJQUNmLE1BQU0sQ0FBQyxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQyxLQUFLLENBQUMsTUFBTSxDQUFDLEdBQUcsSUFBSSxDQUFDLENBQUM7SUFDM0MsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0lBRVYsT0FBTyxDQUFDLEdBQUcsQ0FBQyxFQUFFO1FBQ1osTUFBTSxLQUFLLEdBQUcsS0FBSyxDQUFDLE1BQU0sQ0FDeEIsQ0FBQyxFQUNELENBQUMsQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxJQUFJLEdBQUcsS0FBSyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsS0FBSyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUMzRCxDQUFDO1FBRUYsR0FBRyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNoQixDQUFDLEVBQUUsQ0FBQztLQUNMO0lBRUQsT0FBTyxHQUFHLENBQUM7QUFDYixDQUFDO0FBRUQsTUFBTSxVQUFVLFFBQVEsQ0FBQyxLQUFXO0lBQ2xDLE9BQU8sT0FBTyxLQUFLLEtBQUssUUFBUSxJQUFJLE1BQU0sQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsS0FBSyxpQkFBaUIsQ0FBQztBQUNsRyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXHJcbiAqIFJldHVybnMgdGhlIGluZGV4IG9mIHRoZSBsYXN0IGVsZW1lbnQgaW4gdGhlIGFycmF5IHdoZXJlIHByZWRpY2F0ZSBpcyB0cnVlLCBhbmQgLTFcclxuICogb3RoZXJ3aXNlLlxyXG4gKiBAcGFyYW0gYXJyYXkgVGhlIHNvdXJjZSBhcnJheSB0byBzZWFyY2ggaW5cclxuICogQHBhcmFtIHByZWRpY2F0ZSBmaW5kIGNhbGxzIHByZWRpY2F0ZSBvbmNlIGZvciBlYWNoIGVsZW1lbnQgb2YgdGhlIGFycmF5LCBpbiBkZXNjZW5kaW5nXHJcbiAqIG9yZGVyLCB1bnRpbCBpdCBmaW5kcyBvbmUgd2hlcmUgcHJlZGljYXRlIHJldHVybnMgdHJ1ZS4gSWYgc3VjaCBhbiBlbGVtZW50IGlzIGZvdW5kLFxyXG4gKiBmaW5kTGFzdEluZGV4IGltbWVkaWF0ZWx5IHJldHVybnMgdGhhdCBlbGVtZW50IGluZGV4LiBPdGhlcndpc2UsIGZpbmRMYXN0SW5kZXggcmV0dXJucyAtMS5cclxuICovXHJcbmV4cG9ydCBmdW5jdGlvbiBmaW5kTGFzdEluZGV4PFQ+KGFycmF5OiBUW10sIHByZWRpY2F0ZTogKHZhbHVlOiBULCBpbmRleDogbnVtYmVyLCBvYmo6IFRbXSkgPT4gYm9vbGVhbik6IG51bWJlciB7XHJcbiAgbGV0IGwgPSBhcnJheS5sZW5ndGg7XHJcblxyXG4gIHdoaWxlIChsLS0pIHtcclxuICAgIGlmIChwcmVkaWNhdGUoYXJyYXlbbF0sIGwsIGFycmF5KSkge1xyXG4gICAgICByZXR1cm4gbDtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIHJldHVybiAtMTtcclxufVxyXG5cclxuZXhwb3J0IGZ1bmN0aW9uIGNodW5rQnlOdW1iZXI8VD4oYXJyYXk6IFRbXSwgc2l6ZTogbnVtYmVyKTogVFtdW10ge1xyXG4gIGNvbnN0IG91dCA9IFtdO1xyXG4gIGNvbnN0IG4gPSBNYXRoLmNlaWwoKGFycmF5Lmxlbmd0aCkgLyBzaXplKTtcclxuICBsZXQgaSA9IDA7XHJcblxyXG4gIHdoaWxlIChpIDwgbikge1xyXG4gICAgY29uc3QgY2h1bmsgPSBhcnJheS5zcGxpY2UoXHJcbiAgICAgIDAsXHJcbiAgICAgIChpID09PSBuIC0gMSkgJiYgc2l6ZSA8IGFycmF5Lmxlbmd0aCA/IGFycmF5Lmxlbmd0aCA6IHNpemVcclxuICAgICk7XHJcblxyXG4gICAgb3V0LnB1c2goY2h1bmspO1xyXG4gICAgaSsrO1xyXG4gIH1cclxuXHJcbiAgcmV0dXJuIG91dDtcclxufVxyXG5cclxuZXhwb3J0IGZ1bmN0aW9uIGlzTnVtYmVyKHZhbHVlPzogYW55KTogdmFsdWUgaXMgbnVtYmVyIHtcclxuICByZXR1cm4gdHlwZW9mIHZhbHVlID09PSAnbnVtYmVyJyB8fCBPYmplY3QucHJvdG90eXBlLnRvU3RyaW5nLmNhbGwodmFsdWUpID09PSAnW29iamVjdCBOdW1iZXJdJztcclxufVxyXG4iXX0=
