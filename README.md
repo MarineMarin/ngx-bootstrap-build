@@ -1,3 +1,9 @@
+
+## WARNING AF
+This is a build of the [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap) fork [MarineMarin/ngx-bootstrap](https://github.com/MarineMarin/ngx-bootstrap), that fixes an error on the Carousel component when running on Angular SSR : the original code calls window without checking isPlatformBrowser, which causes an ReferenceError (window is not defined) when running server side.
+This repo and its usage are meant to be temporary, and replaced with the [original repo](https://github.com/valor-software/ngx-bootstrap) once the [related pull request](https://github.com/valor-software/ngx-bootstrap/pull/6474) is accepted and published.
+
+
 <a href="http://valor-software.com/ngx-bootstrap/#/">
 <div align="center">
 <img class="mx-auto center-block d-block" src="https://valor-software.com/ngx-bootstrap/assets/images/logos/ngx-bootstrap-logo.svg" alt="ngx-bootstrap" width="200" height="200">
@@ -19,10 +25,6 @@ Best way to quickly integrate <a href="https://getbootstrap.com/">Bootstrap 3</a
 <img src="https://cdn.brandfolder.io/5H442O3W/at/pl546j-7le8zk-btwjnu/Slack_RGB.png?width=1200&height=150" alt="slack" ></a>
 
 </p>
-
-## WARNING AF
-This is a build of the [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap) fork [MarineMarin/ngx-bootstrap](https://github.com/MarineMarin/ngx-bootstrap), that fixes an error on the Carousel component when running on Angular SSR : the original code calls window without checking isPlatformBrowser, which causes an ReferenceError (window is not defined) when running server side.
-This repo and its usage are meant to be temporary, and replaced with the [original repo](https://github.com/valor-software/ngx-bootstrap) once the [related pull request](https://github.com/valor-software/ngx-bootstrap/pull/6474) is accepted and published.
 
 ## Links
 
